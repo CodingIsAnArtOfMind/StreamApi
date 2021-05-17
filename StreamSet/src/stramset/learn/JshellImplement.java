@@ -113,7 +113,8 @@ courses.stream().map(course -> course.split("")).flatMap(Arrays::stream).distinc
 List<String> courses = List.of("Spring", "Spring Boot", "API" , "Microservices","AWS", "PCF","Azure", "Docker", "Kubernetes");
 
 List<String> courses2 = List.of("Spring", "Spring Boot", "API" , "Microservices","AWS", "PCF","Azure", "Docker", "Kubernetes");
-List<String> as=courses.stream().flatMap(courses -> courses2.stream().map(courses2 -> List.of(courses,courses2))).collect(Collectors.toList());
+List<String> as=courses.stream().flatMap(courses -> courses2.stream().map(courses2 -> List.of(courses,courses2))).collect(Collectors.toList()));
+//courses.stream().flatMap(course -> courses2.stream().filter(course2 -> course2.length()==course.length()).map(course2 -> List.of(course,course2))).filter(list -> !list.get(0).equals(list.get(1))).collect(Collectors.toList());
 
 courses.stream().flatMap(course -> courses2.stream().map(course2 -> List.of(course,course2))).collect(Collectors.toList());
 
@@ -144,10 +145,10 @@ courses.replaceAll( str -> str.toUpperCase()); //Error
 
 List<String> modifyableCourses = new ArrayList(courses);
 
-modifyableCourses.replaceAll(str -> str.toUpperCase())
-modifyableCourses.removeIf(course -> course.length()<6)
+modifyableCourses.replaceAll(str -> str.toUpperCase());
+modifyableCourses.removeIf(course -> course.length()<6);
 
-Runnable runnable3 = () -> IntStream.range(0, 10000).forEach(i -> System.out.println(Thread.currentThread().getId() + ":" + i))
+Runnable runnable3 = () -> IntStream.range(0, 10000).forEach(i -> System.out.println(Thread.currentThread().getId() + ":" + i);
 
 
 

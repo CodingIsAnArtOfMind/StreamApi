@@ -112,6 +112,12 @@ public class StreamTest {
 		Map<String, List<Study>> res = studys.stream().filter(x -> x.getCategory().equals("Cloud"))
 				.collect(Collectors.groupingBy(Study::getCategory, Collectors.toList()));
 		System.out.println(res);
+
+		// TODO test
+		System.out.println("--------Testing-------------");
+		studys.parallelStream().map(Study::getName).forEachOrdered(x -> {
+			System.out.println(x);
+		});
 	}
 }
 
